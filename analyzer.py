@@ -15,12 +15,12 @@ def predict_from_file(filename):
 	with open(predictions_folder + filename, 'r', encoding='utf-8') as file:
 		content = file.read()
 
-		_prediction = [content]
-		_pred_count  = count_vectorizer.transform(_prediction)
-		_pred_tfdf = tfdf.transform(_pred_count)
+	_prediction = [content]
+	_pred_count  = count_vectorizer.transform(_prediction)
+	_pred_tfdf = tfdf.transform(_pred_count)
 
-		result = classifier.predict(_pred_tfdf)
-		return known_languages.get(result[0], "Prediction errror")
+	result = classifier.predict(_pred_tfdf)
+	return known_languages.get(result[0], "Prediction errror")
 
 def how_it_works():
 	print(f"""
