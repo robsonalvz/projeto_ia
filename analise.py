@@ -30,14 +30,25 @@ sql_codes = []
 for filename in sql_files:
     text = open(filename).read()
     sql_codes.append(text)
+
+
+    
+html_files = glob.glob('languages/html/*.html')
+
+html_codes = []
+
+
+for filename in html_files:
+    text = open(filename).read()
+    html_codes.append(text)
 # realizar a classificacao em listas separadas, cada lista em x corresponde a uma classificacao em y (ex:
 # caracteristica1(lista1) = positivo/negativo(lista2) )
 # modelo bag of words
 
 # X = caracteristicas do dados de treinamento
 
-X = java_codes + python_codes + sql_codes
-Y = [0]*34 + [1]*34  + [2]*34
+X = java_codes + python_codes + sql_codes + html_codes
+Y = [0]*34 + [1]*34  + [2]*34 + [3]*34
 
 count_vectorizer = CountVectorizer()
 
@@ -60,7 +71,7 @@ classifier.fit(X_tfdr, Y)
 
 example = [
 ''''
-SELECT * FROM ALUNOS;
+System.out.println("ola'mundo')
 '''
 ]
 # metodo diferente, porque o fit_transform faz o fit e o transform
