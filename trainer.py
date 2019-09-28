@@ -29,14 +29,23 @@ print("Getting SQL data...")
 for filename in sql_files:
     text = open(filename, encoding="utf-8").read()
     sql_codes.append(text)
+
+
+print("Getting HTML data...")
+html_files = glob.glob('languages/html/*.html')
+html_codes = []
+
+for filename in html_files:
+    text = open(filename, encoding='utf-8').read()
+    html_codes.append(text)
 # realizar a classificacao em listas separadas, cada lista em x corresponde a uma classificacao em y (ex:
 # caracteristica1(lista1) = positivo/negativo(lista2) )
 # modelo bag of words
 
 # X = caracteristicas do dados de treinamento
 
-X = java_codes + python_codes + sql_codes
-Y = [0]*34 + [1]*34  + [2]*34
+X = java_codes + python_codes + sql_codes + html_codes
+Y = [0]*34 + [1]*34  + [2]*34 + [3]*34
 
 count_vectorizer = CountVectorizer()
 
@@ -55,7 +64,8 @@ print("Training Genie...")
 classifier = MultinomialNB()
 classifier.fit(X_tfdr, Y)
 
-print("Saving Genie")
+
+print("Saving Genie...")
 with open('./model/classifier', 'wb') as file:
 	pickle.dump(classifier, file, protocol=pickle.HIGHEST_PROTOCOL)
 
@@ -64,4 +74,3 @@ with open('./model/tfdf', 'wb') as file:
 
 with open('./model/count_vectorizer', 'wb') as file:
 	pickle.dump(count_vectorizer, file, protocol=pickle.HIGHEST_PROTOCOL)
-

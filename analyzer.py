@@ -25,7 +25,7 @@ def predict_from_file(filename):
 def how_it_works():
 	print(f"""
 We have trained our Genie to recognize the following languages:
-Java, Python and SQL.
+Java, Python, SQL and HTML.
 Put any file you want our Genie to predict which language it belongs to in the predictions folder that comes with your version of our Genie.
 The file doesn't have to end with the extension of the language you want to predict, you could put a .txt there if you wish for it!
 You can try our Genie by choosing the "Predict from file" option!
@@ -37,6 +37,7 @@ known_languages = {
 	0: "Java",
 	1: "Python",
 	2: "SQL",
+    3: "HTML"
 }
 
 # o que voce vai classificar tem que passar pelo mesmo tratamento do treino
