@@ -51,7 +51,7 @@ x_count = count_vectorizer.fit_transform(X)
 tfdf = TfidfTransformer()
 X_tfdr = tfdf.fit_transform(x_count)
 
-#chama o naybbase
+#chama o naive bayes
 classifier = MultinomialNB()
 classifier.fit(X_tfdr, Y)
 
