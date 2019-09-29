@@ -44,12 +44,14 @@
 
 		<div class="card mt-3">
 			<div class="card-header bg-dark text-white">
-				<h2 class="card-title">Teste um código!</h2>
+				<h2 class="card-title">Teste seu código!</h2>
 			</div>
 			<div class="card-body bg-light">
 
 				<div class="card-text">
 					<p>Digite abaixo o código que deseja testar e nosso gênio irá classificá-lo de acordo com uma das seguintes linguagens conhecidas:</p>
+
+					<img src="https://media.giphy.com/media/ge2Lomx0p2VIDevwOn/giphy.gif" class="float-right genie">
 
 					<div class="row mb-3">
 					  	<div class="col-4">
@@ -63,37 +65,23 @@
 						<div class="col-8">
 						    <div class="tab-content" id="nav-tabContent">
 								<div class="tab-pane fade show active" id="list-java" role="tabpanel" aria-labelledby="list-java-list">
-							      	<pre>
-							      		<code class="code">
-public class Teste(){
+<pre><code class="code">public class Teste(){
 	public static void main(String[] args){
 		System.out.println("Hello world!");
 	}
-}
-							      	</code>
-							      	</pre>
+}</code></pre>
 								</div>
 								<div class="tab-pane fade" id="list-python" role="tabpanel" aria-labelledby="list-python-list">
-							      	<pre>
-							      		<code>
-if __name__ == __main__:
-	print("Hello world!")
-							      		</code>
-							      	</pre>
+<pre><code>if __name__ == __main__:
+	print("Hello world!")</code></pre>
 								</div>
 			      				<div class="tab-pane fade" id="list-sql" role="tabpanel" aria-labelledby="list-sql-list">
-			      					<pre>
-			      						<code>
-SELECT column1, column2
+<pre><code>SELECT column1, column2
 FROM table_name
-WHERE column1 = 'Hello World!';
-			      						</code>
-			      					</pre>
+WHERE column1 = 'Hello World!';</code></pre>
 			      				</div>
 			      				<div class="tab-pane fade" id="list-html" role="tabpanel" aria-labelledby="list-html-list">
-			      					<pre>
-			      						<code>
-&lt;!DOCTYPE html>
+<pre><code>&lt;!DOCTYPE html>
 &lt;html>
 	&lt;head>
 		&lt;title>Hello world!&lt;/title>
@@ -101,20 +89,26 @@ WHERE column1 = 'Hello World!';
 	&lt;body>
 		&lt;p>Hello wold!&lt;/p>
 	&lt;/body>
-&lt;/html>
-			      						</code>
-			      					</pre>
+&lt;/html></code></pre>
 			      				</div>
 	    					</div>
 		  				</div>
 					</div>
+
 				</div>
 
 				<form class="form" method="POST">
-					<div class="form-group">
-						<textarea notab="notab" class="form-control" placeholder="Digite seu código aqui!" name="predict" id="predict">{% if result %}{{content}}{% endif %}</textarea>
+					<div class="form-row">
+						<div class="form-group col-12">
+							<label>Seu código:</label>
+							<textarea notab="notab" class="form-control" placeholder="Digite seu código aqui!" name="predict" id="predict">{% if result %}{{content}}{% endif %}</textarea>
+						</div>
 					</div>
-					<button type="submit" class="btn btn-outline-primary">Classificar!</button>
+					<div class="form-row">
+						<div class="col-4 offset-4">
+							<button type="submit" class="btn btn-outline-primary btn-lg btn-block">Classificar!</button>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
